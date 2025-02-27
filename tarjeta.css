@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.login-container {
+    text-align: center;
+}
+
+/* Estilos para la tarjeta */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: auto;
+}
+
+/* Icono dentro del formulario */
+.form-icon img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los inputs */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilos para la fila de fecha y CVV */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campo de fecha */
+#FECHA {
+    width: 150px;
+    text-align: center;
+    margin-left: -10px; /* Mueve el campo de fecha un poco a la izquierda */
+}
+
+/* Campo de CVV */
+#CVV {
+    width: 80px;
+    text-align: center;
+    margin-left: auto; /* Asegura que el CVV quede alineado a la derecha */
+}
+
+/* Botón */
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0043a9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+.form-group label {
+    text-align: center;
+    display: block;
+    width: 100%;
+}

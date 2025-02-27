@@ -1,0 +1,210 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, white 50%, #f8f9fa 50%);
+    margin: 0;
+}
+
+/* Contenedor principal alineado a la izquierda */
+.login-container {
+    width: 360px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: -250px;
+    margin-left: -600px;
+}
+
+/* Logo alineado a la izquierda */
+.logo {
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+/* Banner con imagen sin borde azul */
+.banner {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    background: none;
+    padding: 0;
+}
+
+.banner img {
+    width: 113%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Tarjeta contenedora del formulario */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Pestañas de selección */
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Color personalizado para la pestaña activa */
+.tab.active {
+    color: #0043a9;
+    border-bottom: 2px solid #0043a9;
+}
+
+/* Campos del formulario */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+}
+
+select, input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+select {
+    width: 35%;
+    margin-right: 5px;
+}
+
+input {
+    width: 65%;
+}
+
+/* Campo de contraseña con icono */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* Ajuste para que el ojo no se sobreponga */
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #0043a9;
+}
+
+
+/* Botón de ingresar con bordes redondeados */
+.btn {
+    background: #0043a9; /* Color azul */
+    color: white; /* Texto blanco */
+    font-family: Arial, sans-serif; /* Tipo de letra similar */
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 30px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:disabled {
+    background: #ccc; /* Color gris cuando está deshabilitado */
+    cursor: not-allowed;
+}
+
+/* Enlaces alineados a la izquierda */
+.links {
+    display: flex;
+    justify-content: center; /* Centra el contenedor de los enlaces */
+    gap: 40px; /* Ajusta la separación entre los enlaces */
+    margin-top: 20px;
+    font-size: 14px;
+
+}
+
+.links a {
+    text-decoration: none;
+    color: #0043a9;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* Estilo del recaptcha */
+.recaptcha {
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+}
+
+.recaptcha a {
+    color: #0043a9;
+    text-decoration: none;
+}
+
+.anuncio {
+    position: absolute;
+    right: 30%;
+    left: 55%;
+    top: 25%; /* Movido más arriba */
+    transform: translateY(-50%);
+    max-width: 650px; /* Ajusta el tamaño según sea necesario */
+    
+}
+
+
+.botones {
+    position: absolute;
+    right: 30%;
+    left: 55%;
+    top: 50%; /* Movido más arriba */
+    transform: translateY(-50%);
+    max-width: 650px; /* Ajusta el tamaño según sea necesario */
+}
+
+.form-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.form-icon img {
+    width: 50px; /* Ajusta el tamaño del icono */
+    height: auto;
+}

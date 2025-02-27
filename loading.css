@@ -1,0 +1,52 @@
+/* Fondo azul */
+body {
+    background-color: #e8ebf0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Barra blanca del encabezado */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    height: 70px; /* Aumenta la altura del encabezado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logo en el encabezado */
+.logo {
+    height: 50px; /* Aumenta el tamaño del logo */
+}
+
+/* Contenedor del loader */
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Loader: círculo blanco girando */
+.loading-spinner {
+    width: 60px; /* Aumenta el tamaño del loader */
+    height: 60px;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animación de carga */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
